@@ -1,0 +1,57 @@
+// Zed settings
+//
+
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "title_bar": {
+    "show_branch_icon": true,
+  },
+  "icon_theme": "Catppuccin Frappé",
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": false,
+      "settings": {},
+    },
+    "task-master-ai": {
+      "enabled": false,
+      "command": "npx",
+      "args": ["-y", "--package=task-master-ai", "task-master-ai"],
+    },
+  },
+  "theme": "Monokai Night Soft",
+  "base_keymap": "SublimeText",
+  "ui_font_size": 16,
+  "buffer_font_size": 18,
+  "soft_wrap": "editor_width",
+  "features": {
+    // Which inline completion provider to use.
+    "edit_prediction_provider": "zed",
+  },
+  // Grok as Default
+  "agent": {
+    "single_file_review": true,
+    "play_sound_when_agent_done": true,
+    "default_profile": "write",
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "x_ai",
+      "model": "grok-4-1-fast-reasoning",
+    },
+  },
+  "agent_servers": {
+    "Goose 🪿": {
+      "type": "custom",
+      "command": "goose",
+      "args": ["acp"],
+      "env": {
+        "GOOSE_PROVIDER": "xai",
+        "GOOSE_MODEL": "grok-4-1-fast-reasoning",
+      },
+    },
+  },
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "ralph_loop": {
+    "enabled": true,
+    "default_max_iterations": 100,
+    "completion_promise": "<promise>DONE</promise>"
+  },
+  "agents": {
+    "Sisyphus": {
+      "model": "grok-4-1-fast-reasoning",
+      "temperature": 0.35,
+      "description": "Main orchestrator & Ralph Loop driver – maximal reasoning for complex coordination"
+    },
+    "oracle": {
+      "model": "grok-4-1-fast-reasoning",
+      "temperature": 0.4
+    },
+    "explore": {
+      "model": "grok-4-1-fast-reasoning",
+      "temperature": 0.5,
+      "description": "Deep research & exploration – leverages strong reasoning capabilities"
+    },
+    "librarian": {
+      "model": "grok-code-fast-1",
+      "temperature": 0.3
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "grok-code-fast-1",
+      "temperature": 0.6,
+      "description": "UI/UX + frontend work – fast iteration on visual/code tasks"
+    },
+    "document-writer": {
+      "model": "grok-code-fast-1",
+      "temperature": 0.45
+    },
+    "multimodal-looker": {
+      "model": "grok-4-1-fast-reasoning",
+      "temperature": 0.5,
+      "description": "Vision + multimodal analysis – reasoning variant for better image/code understanding"
+    }
+  },
+  "disabled_agents": [],
+  "disabled_hooks": []
+}

@@ -1,0 +1,18 @@
+{
+  "plugin": ["oh-my-opencode"],
+  "provider": {
+    "mistral": {
+      "npm": "@ai-sdk/mistral",
+      "name": "Mistral AI",
+      "models": {
+        "devstral2": {
+          "name": "Devstral 2"
+        },
+        "mistral-large-latest": {
+          "name": "Mistral Large"
+        }
+      }
+    }
+  },
+  "$schema": "https://opencode.ai/config.json"
+}
