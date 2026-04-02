@@ -19,6 +19,9 @@ Given the programming language you are working with, ignore any rules that make 
 - Design for testing: Structure code so business logic can be unit-tested without UI or database dependencies.
 - Use events for decoupling: Apply event-driven patterns for communication across concerns instead of direct calls.
 
+# Testing
+* Use playwright mcp to test anything that requires a browser. 
+
 ## Git Workflow
 
 ### Mandatory Commit Rule
