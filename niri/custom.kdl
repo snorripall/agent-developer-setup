@@ -1,0 +1,51 @@
+// Custom Niri Configuration
+// Location: ~/code/dotfiles/niri/custom.kdl
+// Symlinked to: ~/.config/niri/custom.kdl
+// Include this in config.kdl with: include "custom.kdl"
+
+// === LAYOUT: Center-focused 16:9 mode for ultrawide ===
+layout {
+    gaps 16
+    center-focused-column "always"
+    always-center-single-column
+    background-color "transparent"
+    
+    // 16:9 proportion for 3840x1600 screen = 2844px wide
+    default-column-width { proportion 0.741; }
+    
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.741 // 16:9
+        proportion 0.66667
+    }
+    
+    struts {}
+}
+
+// === WINDOW RULES ===
+// Steam games: true fullscreen on gaming-stream
+window-rule {
+    match app-id=r#"^steam_app_"#
+    exclude title=r#"(?i)Battle\.net"#
+    exclude title=r#"^$"#
+    open-on-workspace "gaming-stream"
+    open-fullscreen true
+}
+
+// Slay the Spire 2: gaming-stream with fullscreen
+window-rule {
+    match title=r#"Slay the Spire 2"#
+    match title=r#"slay-the-spire-2"#
+    open-on-workspace "gaming-stream"
+    open-maximized true
+    open-fullscreen true
+}
+
+// === KEYBINDS: Custom shortcuts ===
+binds {
+    // Reload Niri config
+    Mod+F5 hotkey-overlay-title="Reload Niri config" { 
+        spawn "niri" "msg" "action" "reload-config"; 
+    }
+}
