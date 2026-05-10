@@ -11,78 +11,78 @@
   },
   "agents": {
     "build": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "plan": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "sisyphus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "sisyphus-junior": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "OpenCode-Builder": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "prometheus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "metis": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "momus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "oracle": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "librarian": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "explore": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "hephaestus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "frontend-ui-ux-engineer": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "document-writer": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "multimodal-looker": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "atlas": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "ultrabrain": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "artistry": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "quick": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "unspecified-low": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "unspecified-high": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "writing": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     },
     "deep": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p6"
     }
   },
   "disabled_agents": [],
