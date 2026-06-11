@@ -6,7 +6,7 @@
 // === LAYOUT: Center-focused 16:9 mode for ultrawide ===
 layout {
     gaps 16
-    center-focused-column "always"
+    center-focused-column "on-overflow"
     always-center-single-column
     background-color "transparent"
     
@@ -20,23 +20,23 @@ layout {
         proportion 0.66667
     }
     
-    struts {}
+    struts 
 }
 
 // === WINDOW RULES ===
 // Steam games: true fullscreen on gaming-stream
 window-rule {
-    match app-id=r#"^steam_app_"#
-    exclude title=r#"(?i)Battle\.net"#
-    exclude title=r#"^$"#
+    match app-id=r"^steam_app_"
+    exclude title=r"(?i)Battle\.net"
+    exclude title=r"^$"
     open-on-workspace "gaming-stream"
     open-fullscreen true
 }
 
 // Slay the Spire 2: gaming-stream with fullscreen
 window-rule {
-    match title=r#"Slay the Spire 2"#
-    match title=r#"slay-the-spire-2"#
+    match title=r"Slay the Spire 2"
+    match title=r"slay-the-spire-2"
     open-on-workspace "gaming-stream"
     open-maximized true
     open-fullscreen true
@@ -45,7 +45,8 @@ window-rule {
 // === KEYBINDS: Custom shortcuts ===
 binds {
     // Reload Niri config
-    Mod+F5 hotkey-overlay-title="Reload Niri config" { 
-        spawn "niri" "msg" "action" "reload-config"; 
+    Mod+F5 hotkey-overlay-title="Reload Niri config" {
+ 
+        spawn "niri" "msg" "action" "reload-config" ;
     }
 }
