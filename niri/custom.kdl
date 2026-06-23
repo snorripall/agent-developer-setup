@@ -42,6 +42,13 @@ window-rule {
     open-fullscreen true
 }
 
+// Syncthing Tray: keep its dropdown window floating instead of tiling it
+window-rule {
+    match app-id=r"(?i)^syncthingtray"
+    open-floating true
+    default-floating-position x=16 y=16 relative-to="top-right"
+}
+
 // === KEYBINDS: Custom shortcuts ===
 binds {
     // Reload Niri config
