@@ -11,78 +11,75 @@
   },
   "agents": {
     "build": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/kimi-for-coding"
     },
     "plan": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "sisyphus": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "sisyphus-junior": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/kimi-for-coding"
     },
     "OpenCode-Builder": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/kimi-for-coding"
     },
-    "prometheus": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "metis": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "momus": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "oracle": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "librarian": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "explore": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "hephaestus": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "frontend-ui-ux-engineer": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "document-writer": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "multimodal-looker": {
-      "model": "kimi-for-coding/k2p6"
+    "sisyphus": {
+      "model": "kimi-for-coding/kimi-for-coding",
+      "compaction": {
+        "model": "kimi-for-coding/kimi-for-coding-highspeed"
+      }
     },
     "atlas": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "sisyphus-junior": {
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "hephaestus": {
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "prometheus": {
+      "model": "kimi-for-coding/k3"
+    },
+    "metis": {
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "momus": {
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "oracle": {
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "explore": {
+      "model": "kimi-for-coding/kimi-for-coding-highspeed"
+    },
+    "librarian": {
+      "model": "kimi-for-coding/kimi-for-coding-highspeed"
+    },
+    "multimodal-looker": {
+      "model": "kimi-for-coding/kimi-for-coding-highspeed"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "ultrabrain": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/k3"
     },
     "artistry": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/k3"
     },
-    "quick": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "unspecified-low": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "unspecified-high": {
-      "model": "kimi-for-coding/k2p6"
-    },
-    "writing": {
-      "model": "kimi-for-coding/k2p6"
+    "ultrabrain": {
+      "model": "kimi-for-coding/kimi-for-coding"
     },
     "deep": {
-      "model": "kimi-for-coding/k2p6"
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "unspecified-high": {
+      "model": "kimi-for-coding/kimi-for-coding"
+    },
+    "quick": {
+      "model": "kimi-for-coding/kimi-for-coding-highspeed"
+    },
+    "unspecified-low": {
+      "model": "kimi-for-coding/kimi-for-coding-highspeed"
+    },
+    "writing": {
+      "model": "kimi-for-coding/kimi-for-coding-highspeed"
     }
   },
   "disabled_agents": [],
