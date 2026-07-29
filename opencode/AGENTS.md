@@ -6,7 +6,7 @@ These are rules for development.
 
 Given the programming language you are working with, ignore any rules that make no logical sense for that language. 
 
-## Seperation of concerns
+## Separation of concerns
 - Split logic into individual files / components / and modules. This helps in maintaining a clear structure and makes it easier to understand and modify the code and reduces LLM context overflow. 
 - Follow the Single Responsibility Principle (SRP): Ensure each class or module has only one reason to change.
 - Layer your architecture: Separate concerns into distinct layers, such as Presentation, Business Logic, and Data Access.
@@ -36,7 +36,6 @@ Given the programming language you are working with, ignore any rules that make 
 
 ### Commit Process
 1. **Check for git repository**: Run `git status` to verify you're in a git repo
-   - If error "not a git repository": Run `git init` to create a new repo
    - If error "not a git repository": Run `git init` to create a new repo
 2. **Ensure .gitignore exists**: Check if `.gitignore` file exists
    - If missing: Create a sensible `.gitignore` for the project type (Node.js, Python, Rust, etc.)

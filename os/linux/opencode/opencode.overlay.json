@@ -1,0 +1,13 @@
+{
+  "mcp": {
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest",
+        "--executable-path=/usr/lib/chromium/chromium"
+      ],
+      "enabled": true
+    }
+  }
+}

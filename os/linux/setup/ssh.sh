@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# cachyos-ssh-setup.sh
+# os/linux/setup/ssh.sh
 # Complete SSH key setup for CachyOS with auto-unlock on login
 #
 
@@ -159,35 +159,52 @@ setup_ssh_config() {
     
     local key_path="$HOME/.ssh/$key_name"
     
-    # Create SSH config
-    cat > ~/.ssh/config << EOF
-# Default settings
-Host *
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentitiesOnly yes
-
-# GitHub
+    # Write a drop-in include (do not clobber existing ~/.ssh/config)
+    local drop_in="$HOME/.ssh/config.d/dotfiles-hosts"
+    mkdir -p "$HOME/.ssh/config.d"
+    cat > "$drop_in" << EOF
+# Managed by os/linux/setup/ssh.sh — key: $key_name
 Host github.com
     HostName github.com
     User git
     IdentityFile $key_path
+    IdentitiesOnly yes
+    AddKeysToAgent yes
 
-# GitLab
 Host gitlab.com
     HostName gitlab.com
     User git
     IdentityFile $key_path
+    IdentitiesOnly yes
+    AddKeysToAgent yes
 
-# Generic git host template
 Host git-*
     User git
     IdentityFile $key_path
+    IdentitiesOnly yes
+    AddKeysToAgent yes
 EOF
-    
-    chmod 600 ~/.ssh/config
-    
-    print_success "SSH config created"
+    chmod 600 "$drop_in"
+
+    # Ensure main config includes drop-ins without overwriting custom settings
+    mkdir -p "$HOME/.ssh"
+    touch "$HOME/.ssh/config"
+    chmod 600 "$HOME/.ssh/config"
+    if ! grep -Fq 'Include config.d/*' "$HOME/.ssh/config" 2>/dev/null; then
+        # Prepend Include so it applies (ssh reads first match for some options)
+        local tmp
+        tmp="$(mktemp)"
+        {
+            echo "Include config.d/*"
+            echo ""
+            cat "$HOME/.ssh/config"
+        } > "$tmp"
+        mv "$tmp" "$HOME/.ssh/config"
+        chmod 600 "$HOME/.ssh/config"
+        print_success "Added Include config.d/* to ~/.ssh/config"
+    fi
+
+    print_success "SSH host config written to $drop_in"
 }
 
 # Setup PAM for KWallet auto-unlock
@@ -262,31 +279,13 @@ store_passphrase() {
     fi
 }
 
-# Setup Fish shell integration
+# Fish keychain lives in the repo (os/linux/fish/conf.d/20-keychain.fish).
+# Do not append to config.fish — it may be a symlink into this repo.
 setup_fish() {
-    print_status "Setting up Fish shell integration..."
-    
-    local fish_config="$HOME/.config/fish/config.fish"
-    
-    # Create config directory if needed
-    mkdir -p "$HOME/.config/fish"
-    
-    # Check if keychain config already exists
-    if grep -q "keychain" "$fish_config" 2>/dev/null; then
-        print_success "Fish config already has keychain setup"
-        return
-    fi
-    
-    # Add keychain setup to Fish config
-    cat >> "$fish_config" << 'EOF'
-
-# Load keychain for SSH agent with 8-hour cache
-if command -v keychain > /dev/null
-    eval (keychain --quiet --eval --timeout 28800)
-end
-EOF
-    
-    print_success "Fish shell configured for SSH agent"
+    print_status "Fish SSH agent integration"
+    print_status "Install dotfiles with: ./scripts/bootstrap.sh"
+    print_status "Keychain snippet: os/linux/fish/conf.d/20-keychain.fish"
+    print_success "Skipped mutating fish config (managed by bootstrap)"
 }
 
 # Create Niri autostart script (if using Niri)

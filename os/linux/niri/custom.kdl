@@ -1,6 +1,6 @@
 // Custom Niri Configuration
-// Location: ~/code/dotfiles/niri/custom.kdl
-// Symlinked to: ~/.config/niri/custom.kdl
+// Repo: os/linux/niri/custom.kdl
+// Installed to: ~/.config/niri/custom.kdl (via scripts/bootstrap.sh)
 // Include this in config.kdl with: include "custom.kdl"
 
 // === LAYOUT: Center-focused 16:9 mode for ultrawide ===
@@ -19,8 +19,6 @@ layout {
         proportion 0.741 // 16:9
         proportion 0.66667
     }
-    
-    struts 
 }
 
 // === WINDOW RULES ===

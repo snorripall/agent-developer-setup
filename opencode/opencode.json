@@ -1,6 +1,6 @@
 {
-  "plugin": ["oh-my-opencode@latest"],
   "$schema": "https://opencode.ai/config.json",
+  "plugin": ["oh-my-opencode@latest"],
   "model": "xai/grok-code-fast-1",
   "mcp": {
     "Taskmaster AI": {
@@ -10,7 +10,7 @@
     },
     "playwright": {
       "type": "local",
-      "command": ["npx", "@playwright/mcp@latest", "--executable-path=/usr/lib/chromium/chromium"],
+      "command": ["npx", "@playwright/mcp@latest"],
       "enabled": true
     }
   },

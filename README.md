@@ -1,253 +1,228 @@
 # My Dotfiles
-This is my personal configuration and will change over time based on my needs and preferences. 
 
-This can be a starting point for your own configuration. Feel free to modify it to suit your needs.
+Personal configuration for Linux (CachyOS + niri) and macOS. It will change over time based on needs and preferences.
 
-If you wish to contribute any improvement such as agents or skills, feel free to send me a pull request. Just make sure you explain in the pull request what problem you are trying to solve.
+This can be a starting point for your own setup. Use at your own risk.
 
-Use at your own risk. I take zero responsibility. 
+If you wish to contribute improvements (agents, skills, etc.), open a pull request and explain the problem you are solving.
 
-## How to use this repo
+## Layout
 
-* Clone this repo to a folder that is not your `~./config/` folder
-* For regular updates, symlink desired files/folders from the repo into your `~./config/`
-* Only symlink the files/folders you wish to get regular updates for
-
-## Criteria
-This is the criteria I set for the ideal work environment. Not all criteria has been met yet. But It's getting close. 
-
-### All tools
-* Runs on Linux and MacOS
-  * Linux: CachyOS + niri + Dank Material Shell
-  * MacOS: Latest OS on M2 
-* Open source
-* Allows me to bring my own API keys
-	* No lock-in models
-### Editor
-* :white_check_mark: Super super duper fast
-* :white_check_mark: Works with large files
-* :white_check_mark: Extensible
-* :white_check_mark: Native tools made available via ACP
-* :white_check_mark: Native or extensions for 3rd party AI agents
-* Native support for Agent Protocols
-  * :white_check_mark: ACP
-  * A2A
-* :white_check_mark: Git support
-### Agent Harness
-* :white_check_mark: Custom models 
-* :white_check_mark: Can route between models based on prompts need
-* :white_check_mark: Robust permissions so it doesn't accidentally all my computer
-* :white_check_mark: Allows me to add custom agents and skills
-* :x: Allows me to create my own developer workflow
-	* In general
-	* For a project
-	* For a programming language
-* :white_check_mark: Must have [ACP](https://agentcommunicationprotocol.dev/introduction/welcome) / [A2A](https://a2a-protocol.org/latest/) support so it can run in side a compatible editor 
-* :white_check_mark: Has a nice CLI interface
-	* :white_check_mark: When I want to run something autonomously
-	* :last_quarter_moon: To use when I'm managing servers
-* :white_check_mark: Can rewrite my prompt into a better feature description 
-* :white_check_mark: Can break down large tasks into smaller tasks
-* :white_check_mark: Can mange multiple set of complex features (Epics/Branches)
-* :white_check_mark: Can identify the next logical task to pick up
-	* :white_check_mark: Can identify the dependency tree between all tasks and figure out what order things should be done in
-* :last_quarter_moon: When I add a new task it should
-	* :last_quarter_moon: Updates the dependency tree
-	* :white_check_mark: Notify me of inconsistencies and conflicts
-		* :white_check_mark: Will suggest fixes 
-		* :white_check_mark: Allows me to modify suggestions or give my own 
-	* :x: Is accessible as a tool or MCP to any developer agent. 
-* :last_quarter_moon: Is embedded visually into my editor
-
-# My workflow
-I spend most of my time planning features and writing good detailed requirements documents. 
-
-* Ideation: 
-  * I start a conversation with a general agent like grok.com and get my idea across and structured in an abstract manner.
-  * When I'm happy with the results I ask it to summarise it up so an AI agent can make a plan out of it. 
-* Planning: 
-  * Prompt the agent: "Please take this and turn it into a executable plan. Ask me any clarifying questions". Then I paste in the text. 
-  * Work on it until I'm satisfied
-    
-* Execution
-  * Prompt the agent: "Ultrawork on the latest plan"
-  * Go work on my next Ideation while the agent delivers. 
-
-## Tips
-* Ideation: Make sure you tell it to only work on architecture and system design level. Not to think of what technology to use. Just pure problem solving on a system / product level. 
-* Planning: 
-  * To speed up your review, ask your agent to use Mermaid in the markdown files for better communication of any architecutre / system design. 
-    * I use Obsidian to view the plans from the agent before I finalize them
-  * Currently /start-work in Oh-My-OpenCode seem to not work as *I* would expect it to work. So I ask it to finalize the plan and remove it from draft mode and when that is done I switch over to the execution agent. 
-
-
-## Tools I am currently using
-
-### [Zed](https://zed.dev/)
-Zed by far the best editor I have ever used. It's robust and super fast and it's community is growing fast. 
-
-I believe that [their vision for the editor](https://zed.dev/blog/sequoia-backs-zed
-) is a very strong one and quite unique in the sea of VS Code clones. 
-
- It is created by the same team that created Atom and Electron (which inspired Microsoft to create VS Code). 
-### [OpenCode](https://opencode.ai/)
- I spent over 6 weeks to try out all possible developer agent tools I could find and pushed them to their limits and ended up on [OpenCode](https://github.com/anomalyco/opencode). 
- 
- But that may change in the future.
- 
-## Plugins and MCPs
-### [Oh My OpenCode](https://github.com/code-yeongyu/oh-my-opencode)
-Oh My OpenCode is the real reason I found OpenCode acceptable. 
-
-This replaces OpenCodes default agents. It is far superior than what OpenCode has. I recommend having a look at their repo to see what features they offer.
-
-
-# Configs
-
-## API Keys
-I store all my API keys in my environment. 
-
-- `XAI_API_KEY`
-- `MISTRAL_API_KEY`
-- `OPENROUTER_API_KEY`
-- `GOOGLE_API_KEY`
-- `GEMINI_API_KEY`
-
-etc.
-
-## Repository Structure
-
-```
+```text
 dotfiles/
-├── fish/                   # Fish shell configuration
-│   ├── config.fish        # Main fish config with git abbreviations
-│   └── functions/         # Fish functions
-│       └── env-sync.fish  # Bitwarden environment sync
-├── opencode/              # OpenCode configuration
-│   ├── opencode.json      # Main OpenCode config (MCPs, model)
-│   ├── oh-my-opencode.json # Custom agents and categories
-│   └── AGENTS.md          # Development guidelines for AI agents
-├── zed/                   # Zed editor configuration
-│   ├── settings.json      # Editor settings and agent config
-│   └── keymap.json        # Custom keybindings
-├── scripts/               # Setup scripts
-│   ├── setup-fish.sh      # Symlink fish config
-│   └── symlink-opencode.sh # Symlink OpenCode config
-└── README.md              # This file
+├── fish/                      # OS-agnostic shell config
+│   ├── config.fish
+│   ├── conf.d/                # shared snippets (abbreviations, …)
+│   └── functions/             # e.g. env-sync
+├── zed/                       # shared Zed settings
+├── opencode/                  # shared OpenCode config
+│   ├── opencode.json          # base (plugin, permissions, MCPs)
+│   ├── AGENTS.md
+│   └── profiles/
+│       ├── cloud.json         # API models (Kimi, etc.)
+│       └── homelab.json       # local/homelab models
+├── os/
+│   ├── linux/                 # CachyOS / niri machine only
+│   │   ├── fish/conf.d/       # CachyOS source, keychain, SUDO_ASKPASS
+│   │   ├── niri/
+│   │   ├── bin/sudo-askpass
+│   │   ├── opencode/          # OS overlay (Chromium path for Playwright)
+│   │   ├── skills/
+│   │   └── setup/             # one-shot helpers (ssh, niri)
+│   └── macos/                 # macOS only
+│       ├── fish/conf.d/
+│       ├── zed/keymap.json    # cmd- bindings
+│       └── opencode/          # OS overlay
+└── scripts/
+    ├── bootstrap.sh           # install shared + OS pack
+    └── opencode-profile.sh    # switch cloud | homelab agents
 ```
 
-## Shell Configuration (Fish)
+**Mental model**
 
-### Git Abbreviations
+| Layer | Meaning | Examples |
+|--------|---------|----------|
+| Repo-root tools (`fish/`, `zed/`, `opencode/`) | Same on every machine | abbreviations, env-sync, Zed theme, AGENTS.md |
+| `os/<platform>/` | How this OS reaches the world | niri, sudo-askpass, Chromium path, `cmd` keymaps |
+| `opencode/profiles/` | Which models to use (role, not OS) | cloud vs homelab |
 
-The fish config includes convenient git abbreviations:
-- `g` → `git`
-- `gs` → `git status`
-- `gc` → `git clone`
-- `gpush` → `git push`
-- `gpull` → `git pull`
-
-### Environment Sync (`env-sync`)
-I need to be able to keep my keys in sync across operating systems. 
-This is a fish function that syncs API keys from Bitwarden to environment variables. 
+## Quick start
 
 ```bash
-# Sync API keys from Bitwarden to current session
-env-sync
+git clone <this-repo> ~/Code/dotfiles   # any path is fine
+cd ~/Code/dotfiles
+./scripts/bootstrap.sh                  # detects Linux vs macOS
+./scripts/bootstrap.sh --profile cloud  # or: homelab
+```
 
-# Force refresh all variables (even unchanged)
-env-sync --force
+Dry-run:
 
-# Show help
+```bash
+./scripts/bootstrap.sh --dry-run
+```
+
+Force an OS pack (e.g. testing):
+
+```bash
+./scripts/bootstrap.sh --os linux
+./scripts/bootstrap.sh --os macos
+```
+
+Switch agent profile later without re-linking everything:
+
+```bash
+./scripts/opencode-profile.sh cloud
+./scripts/opencode-profile.sh homelab
+./scripts/opencode-profile.sh          # show current
+```
+
+Bootstrap will:
+
+- Symlink shared `fish`, `zed`, and OS packs into `~/.config/…` (and `~/.local/bin` for Linux helpers)
+- Merge `opencode/opencode.json` + `os/<platform>/opencode/opencode.overlay.json` → `~/.config/opencode/opencode.json` (requires `jq`)
+- Symlink the chosen profile to `~/.config/opencode/oh-my-openagent.json`
+- Back up real files once if they are not already symlinks
+
+### Linux extras
+
+```bash
+./os/linux/setup/niri.sh   # niri only (also covered by bootstrap)
+./os/linux/setup/ssh.sh    # interactive SSH + KWallet setup (CachyOS)
+```
+
+Ensure Niri loads the custom file:
+
+```kdl
+// in ~/.config/niri/config.kdl
+include "custom.kdl"
+```
+
+## Criteria
+
+Target environment (not all criteria met yet):
+
+### All tools
+
+- Runs on Linux and macOS
+  - Linux: CachyOS + niri + Dank Material Shell
+  - macOS: Apple Silicon
+- Open source
+- Bring your own API keys (no model lock-in)
+
+### Editor
+
+- Super fast, large files, extensible
+- Native tools via ACP; 3rd-party AI agents
+- Agent protocols: ACP (done), A2A (goal)
+- Git support
+
+### Agent harness
+
+- Custom models and routing
+- Robust permissions
+- Custom agents and skills
+- ACP / A2A so it can run inside a compatible editor
+- CLI for autonomous runs and server work
+- Planning: rewrite prompts, break down tasks, epics/branches, dependency order
+
+## Workflow
+
+Most time is spent planning features and writing detailed requirements.
+
+1. **Ideation** — Structure the idea with a general agent; keep it architecture/product level, not tech choice. Summarize for planning.
+2. **Planning** — “Turn this into an executable plan. Ask clarifying questions.” Iterate until satisfied. Mermaid in markdown helps review (e.g. in Obsidian).
+3. **Execution** — “Ultrawork on the latest plan.” Start the next ideation while it runs.
+
+Tip: finalize the plan (leave draft mode) before switching to the execution agent if `/start-work` does not match your expectations.
+
+## Tools
+
+### [Zed](https://zed.dev/)
+
+Fast native editor with a strong agent story. Same team lineage as Atom.
+
+### [OpenCode](https://opencode.ai/) + [Oh My OpenCode](https://github.com/code-yeongyu/oh-my-opencode)
+
+OpenCode is the harness; Oh My OpenCode replaces default agents with a fuller multi-agent setup.
+
+## API keys
+
+Keys live in the environment (not in this repo). Sync from Bitwarden:
+
+```fish
+env-sync           # smart sync
+env-sync --force   # refresh all
 env-sync --help
 ```
 
-**Requirements:**
-- Bitwarden CLI (`bw`) installed and logged in
-- `jq` for JSON parsing
-- An "API Keys" item in Bitwarden with custom fields for each API key
+Requirements: `bw` (logged in), `jq`, and a Bitwarden item named **API Keys** with custom fields per variable.
 
-**Behavior:**
-- New variables: Always set
-- Changed values: Auto-updated (smart sync)
-- Unchanged values: Skipped (unless `--force`)
-- All values persisted to `~/.config/fish/conf.d/env-sync-vars.fish` for future shells
+Values are written to `~/.config/fish/conf.d/env-sync-vars.fish` (mode `600`) for new shells.
 
-### SSH Keychain
+Common variables: `XAI_API_KEY`, `MISTRAL_API_KEY`, `OPENROUTER_API_KEY`, `GOOGLE_API_KEY`, `GEMINI_API_KEY`, etc.
 
-Automatically loads SSH keys via `keychain` on shell startup.
+## Shell (Fish)
 
-## Setup Scripts
-### `scripts/setup-fish.sh` (linux)
+### Shared
 
-Symlinks fish configuration files:
-```bash
-./scripts/setup-fish.sh
-```
+- Git abbreviations: `g`, `gs`, `gc` (clone), `gpush`, `gpull`
+- `env-sync` function
 
-This will:
-- Create `~/.config/fish/functions/` if needed
-- Symlink `env-sync.fish` to functions directory
-- Backup existing `config.fish` (if not a symlink)
-- Symlink `config.fish`
+### Linux (`os/linux/fish/conf.d/`)
 
-### `scripts/symlink-opencode.sh` (linux+mac)
+- CachyOS system config (if present)
+- `keychain` → `monster-github` (8h)
+- `SUDO_ASKPASS` → `~/.local/bin/sudo-askpass`
 
-Symlinks OpenCode configuration:
-```bash
-./scripts/symlink-opencode.sh
-```
+### macOS (`os/macos/fish/conf.d/`)
 
-This symlinks all opencode config files to `~/.config/opencode/`.
+- `keychain` → `monster-github` (8h)
 
-## OpenCode Configuration
+## OpenCode
 
-### Main Config (`opencode.json`)
+### Base (`opencode/opencode.json`)
 
-- **Plugin:** Oh My OpenCode (latest)
-- **Default Model:** xAI/grok-code-fast-1
-- **MCPs:**
-  - Playwright (enabled) - Browser automation
+- Plugin: Oh My OpenCode
+- Default model: `xai/grok-code-fast-1`
+- Playwright MCP enabled (browser path comes from OS overlay on Linux)
+- `sudo *` → ask; other bash → allow
 
-### Custom Agents (`oh-my-opencode.json`)
+### Profiles
 
-All agents and categories use `kimi-for-coding/k2p5` model:
+| Profile | File | Use |
+|---------|------|-----|
+| `cloud` | `opencode/profiles/cloud.json` | Kimi-for-Coding tiers (default) |
+| `homelab` | `opencode/profiles/homelab.json` | Local `homelab/qwen/…` models |
 
-| Agent | Purpose |
-|-------|---------|
-| `build` | Building and compilation tasks |
-| `plan` | Planning and architecture |
-| `sisyphus` | Main orchestration agent |
-| `sisyphus-junior` | Delegated subtasks |
-| `OpenCode-Builder` | Code construction |
-| `prometheus` | Planning consultant |
-| `metis` | Pre-planning analysis |
-| `momus` | Quality assurance |
-| `oracle` | Complex debugging/architecture |
-| `librarian` | Documentation research |
-| `explore` | Codebase exploration |
-| `hephaestus` | Infrastructure/devops |
-| `frontend-ui-ux-engineer` | Frontend development |
-| `document-writer` | Documentation |
-| `multimodal-looker` | Media analysis |
-| `atlas` | Project mapping |
+### Agents (cloud profile)
 
-**Categories:** visual-engineering, ultrabrain, artistry, quick, unspecified-low, unspecified-high, writing, deep
+Tiered Kimi models across build/plan/sisyphus/oracle/explore/etc. See `opencode/profiles/cloud.json`.
 
-### Development Guidelines (`AGENTS.md`)
+### `AGENTS.md`
 
-Rules for AI agents working in this codebase:
-- Separation of concerns and SRP
-- Layered architecture
-- Dependency inversion
-- Event-driven patterns
-- **Git workflow:** Mandatory commits, conventional commits format
-- **Testing:** Design for testability
+Rules for agents in any project: separation of concerns, testing (Playwright MCP), conventional commits.
 
-### Keybindings (`keymap.json`)
+## Zed
 
-| Key | Action |
-|-----|--------|
+- Shared: `zed/settings.json` (theme, fonts, default agent model)
+- macOS keymap: `os/macos/zed/keymap.json`
+
+| Key (macOS) | Action |
+|-------------|--------|
 | `Cmd+Æ` | Toggle assistant focus |
 | `Ctrl+Cmd+Right` | Quote selection to assistant |
 | `Ctrl+Cmd+Left` | Insert assistant response into editor |
+
+## Linux-only notes
+
+### sudo-askpass
+
+Installed by bootstrap to `~/.local/bin/sudo-askpass`. When `OPENCODE` is set and there is no TTY, sudo can use a pinentry GUI (`sudo -A`). Requires `pinentry-qt`.
+
+### SSH setup (CachyOS)
+
+`os/linux/setup/ssh.sh` installs deps, generates a key, writes hosts under `~/.ssh/config.d/` (does not clobber your main config), and optional KWallet PAM unlock. Fish keychain is managed by bootstrap, not by appending to `config.fish`.
+
+### Skills
+
+- `os/linux/skills/virtualbox-windows-vm-setup.md` — Windows VM + USB passthrough on CachyOS

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "ralph_loop": {
+    "enabled": true,
+    "default_max_iterations": 100,
+    "completion_promise": "<promise>DONE</promise>"
+  },
+  "git_master": {
+    "commit_footer": false,
+    "include_co_authored_by": false
+  },
+  "agents": {
+    "build": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "plan": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "sisyphus": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "sisyphus-junior": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "OpenCode-Builder": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "prometheus": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "metis": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "momus": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "oracle": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "librarian": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "explore": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "hephaestus": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "document-writer": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "multimodal-looker": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "atlas": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "ultrabrain": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "artistry": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "quick": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "unspecified-low": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "unspecified-high": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "writing": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    },
+    "deep": {
+      "model": "homelab/qwen/qwen3.6-27b"
+    }
+  },
+  "disabled_agents": [],
+  "disabled_hooks": []
+}

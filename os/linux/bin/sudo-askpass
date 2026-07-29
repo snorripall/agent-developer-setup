@@ -1,40 +1,18 @@
 #!/bin/bash
-# Sudo askpass helper that detects OpenCode vs terminal
-# 
-# SETUP INSTRUCTIONS FOR LINUX:
-# 
-# 1. Save this script to ~/.local/bin/sudo-askpass:
-#    mkdir -p ~/.local/bin
-#    # (paste this script into ~/.local/bin/sudo-askpass)
+# Sudo askpass helper that detects OpenCode vs terminal (Linux).
 #
-# 2. Make it executable:
-#    chmod +x ~/.local/bin/sudo-askpass
+# Installed by: ./scripts/bootstrap.sh
+#   -> ~/.local/bin/sudo-askpass
+# SUDO_ASKPASS is set by: os/linux/fish/conf.d/30-sudo-askpass.fish
 #
-# 3. Set the SUDO_ASKPASS environment variable:
-#
-#    For Bash/Zsh (add to ~/.bashrc or ~/.zshrc):
-#        export SUDO_ASKPASS=$HOME/.local/bin/sudo-askpass
-#
-#    For Fish (add to ~/.config/fish/config.fish):
-#        set -x SUDO_ASKPASS $HOME/.local/bin/sudo-askpass
-#    
-#    Or set it universally in Fish (persists across sessions):
-#        set -Ux SUDO_ASKPASS $HOME/.local/bin/sudo-askpass
-#
-# 4. Reload your shell or start a new terminal session
-#
-# 5. Test it:
-#    sudo -A whoami
-#    # You should see a GUI password dialog appear
+# Test: sudo -A whoami   # GUI dialog under OpenCode; normal prompt in a TTY
 #
 # HOW IT WORKS:
-# - When OpenCode runs sudo commands, OPENCODE=1 is set and no TTY is available
-# - This script detects that and shows a GUI dialog (pinentry-qt)
-# - When you run sudo manually in a terminal, you get the normal password prompt
+# - When OpenCode runs sudo, OPENCODE is set and no TTY is available
+# - This script shows a GUI dialog (pinentry-qt)
+# - In a normal terminal TTY, it exits 1 so sudo prompts on the terminal
 #
-# REQUIREMENTS:
-# - pinentry-qt must be installed (usually comes with GnuPG)
-# - A Wayland or X11 display session
+# REQUIREMENTS: pinentry-qt, Wayland or X11 session
 
 # Check if running under OpenCode AND without a TTY
 if [ -n "$OPENCODE" ]; then
