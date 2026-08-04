@@ -254,12 +254,52 @@ fi
 merge_opencode_config
 install_opencode_profile
 
+# --- macOS: hook env-sync into .zshrc ---
+
+hook_zshrc() {
+  local zshrc="$HOME/.zshrc"
+  local guard="# >>> dotfiles env-sync >>>"
+
+  log ""
+  log "==> zsh env-sync hook (~/.zshrc)"
+
+  if [[ -f "$zshrc" ]] && grep -qF "$guard" "$zshrc"; then
+    log "  ok   (hook already present)"
+    return
+  fi
+
+  local block
+  block="$(cat <<'BLOCK'
+
+# >>> dotfiles env-sync >>>
+[[ -f "$HOME/.config/zsh/env-sync.zsh" ]] && source "$HOME/.config/zsh/env-sync.zsh"
+[[ -f "$HOME/.config/zsh/env-sync-vars.zsh" ]] && source "$HOME/.config/zsh/env-sync-vars.zsh"
+# <<< dotfiles env-sync <<<
+BLOCK
+)"
+
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    log "  [dry-run] append env-sync hook to $zshrc"
+    return
+  fi
+
+  printf '%s\n' "$block" >> "$zshrc"
+  log "  appended env-sync hook to $zshrc"
+}
+
+if [[ "$OS_NAME" == "macos" ]]; then
+  hook_zshrc
+fi
+
 log ""
 log "Done."
 log ""
 log "Next steps:"
 log "  - Restart fish or open a new shell"
 log "  - Switch agent profile:  ./scripts/opencode-profile.sh cloud|homelab"
+if [[ "$OS_NAME" == "macos" ]]; then
+  log "  - Restart zsh or:        source ~/.zshrc"
+fi
 if [[ "$OS_NAME" == "linux" ]]; then
   log "  - Optional setups:       ./os/linux/setup/niri.sh"
   log "                           ./os/linux/setup/ssh.sh"

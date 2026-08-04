@@ -31,6 +31,7 @@ dotfiles/
 │   │   └── setup/             # one-shot helpers (ssh, niri)
 │   └── macos/                 # macOS only
 │       ├── fish/conf.d/
+│       ├── zsh/               # env-sync zsh wrapper
 │       ├── zed/keymap.json    # cmd- bindings
 │       └── opencode/          # OS overlay
 └── scripts/
@@ -149,24 +150,28 @@ OpenCode is the harness; Oh My OpenCode replaces default agents with a fuller mu
 
 Keys live in the environment (not in this repo). Sync from Bitwarden:
 
-```fish
-env-sync           # smart sync
+```bash
+env-sync           # smart sync (works in both fish and zsh)
 env-sync --force   # refresh all
 env-sync --help
 ```
 
 Requirements: `bw` (logged in), `jq`, and a Bitwarden item named **API Keys** with custom fields per variable.
 
-Values are written to `~/.config/fish/conf.d/env-sync-vars.fish` (mode `600`) for new shells.
+The core logic lives in `scripts/env-sync.sh` with thin per-shell wrappers (`fish/functions/env-sync.fish` and `os/macos/zsh/env-sync.zsh`).
+
+Values are persisted (mode `600`) for new shells:
+- fish: `~/.config/fish/conf.d/env-sync-vars.fish`
+- zsh: `~/.config/zsh/env-sync-vars.zsh`
 
 Common variables: `XAI_API_KEY`, `MISTRAL_API_KEY`, `OPENROUTER_API_KEY`, `GOOGLE_API_KEY`, `GEMINI_API_KEY`, etc.
 
-## Shell (Fish)
+## Shell
 
-### Shared
+### Fish (shared)
 
 - Git abbreviations: `g`, `gs`, `gc` (clone), `gpush`, `gpull`
-- `env-sync` function
+- `env-sync` function (thin wrapper around `scripts/env-sync.sh`)
 
 ### Linux (`os/linux/fish/conf.d/`)
 
@@ -174,9 +179,16 @@ Common variables: `XAI_API_KEY`, `MISTRAL_API_KEY`, `OPENROUTER_API_KEY`, `GOOGL
 - `keychain` → `monster-github` (8h)
 - `SUDO_ASKPASS` → `~/.local/bin/sudo-askpass`
 
-### macOS (`os/macos/fish/conf.d/`)
+### macOS
+
+#### Fish (`os/macos/fish/conf.d/`)
 
 - `keychain` → `monster-github` (8h)
+
+#### Zsh (`os/macos/zsh/`)
+
+- `env-sync` function via bootstrap hook in `~/.zshrc`
+- Persisted vars sourced from `~/.config/zsh/env-sync-vars.zsh`
 
 ## OpenCode
 
