@@ -22,6 +22,13 @@ layout {
 }
 
 // === WINDOW RULES ===
+// Chromium: automation workspace, don't steal focus
+window-rule {
+    match app-id="chromium"
+    open-on-workspace "automation"
+    open-focused false
+}
+
 // Steam games: true fullscreen on gaming-stream
 window-rule {
     match app-id=r"^steam_app_"
@@ -53,5 +60,9 @@ binds {
     Mod+F5 hotkey-overlay-title="Reload Niri config" {
  
         spawn "niri" "msg" "action" "reload-config" ;
+    }
+    // Switch to automation workspace
+    Mod+Shift+A hotkey-overlay-title="Go to Automation workspace" {
+        focus-workspace "automation" ;
     }
 }

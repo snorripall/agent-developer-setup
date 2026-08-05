@@ -8,6 +8,15 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "opencode": {
+      "default_config_options": {
+        "model": "kimi-for-coding/kimi-for-coding",
+        "mode": "​​​Prometheus - Plan Builder"
+      },
+      "type": "registry"
+    }
+  },
   "title_bar": {
     "show_branch_icon": true,
   },
